@@ -1,0 +1,13 @@
+test_branch_uses_random_task_value (test_dag.DagTests.test_branch_uses_random_task_value) ... ok
+test_count_uses_bound_medal_and_returns_insert_id (test_dag.DagTests.test_count_uses_bound_medal_and_returns_insert_id) ... ok
+test_dag_parses_without_database_connection (test_dag.DagTests.test_dag_parses_without_database_connection) ... ok
+test_delay_calls_sleep_with_requested_seconds (test_dag.DagTests.test_delay_calls_sleep_with_requested_seconds) ... ok
+test_join_and_sensor_limits (test_dag.DagTests.test_join_and_sensor_limits) ... ok
+test_real_sql_sensor_poke_with_stubbed_database_results (test_dag.DagTests.test_real_sql_sensor_poke_with_stubbed_database_results) ... ok
+test_sensor_parameters_scope_to_current_run (test_dag.DagTests.test_sensor_parameters_scope_to_current_run) ... ok
+test_write_failure_rolls_back (test_dag.DagTests.test_write_failure_rolls_back) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.018s
+
+OK

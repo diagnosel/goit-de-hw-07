@@ -1,0 +1,73 @@
+{
+  "python": "3.12.4",
+  "packages": {
+    "apache-airflow": "2.11.2",
+    "apache-airflow-providers-mysql": "6.5.0",
+    "apache-airflow-providers-common-sql": "1.32.0",
+    "mysql-connector-python": "9.6.0"
+  },
+  "import_errors": {},
+  "dag_id": "aurika_hw07_medals",
+  "tasks": [
+    "branch",
+    "check_freshness",
+    "choose_medal",
+    "count_bronze",
+    "count_gold",
+    "count_silver",
+    "create_table",
+    "delay"
+  ],
+  "edges": [
+    [
+      "branch",
+      "count_bronze"
+    ],
+    [
+      "branch",
+      "count_gold"
+    ],
+    [
+      "branch",
+      "count_silver"
+    ],
+    [
+      "choose_medal",
+      "branch"
+    ],
+    [
+      "count_bronze",
+      "delay"
+    ],
+    [
+      "count_gold",
+      "delay"
+    ],
+    [
+      "count_silver",
+      "delay"
+    ],
+    [
+      "create_table",
+      "choose_medal"
+    ],
+    [
+      "delay",
+      "check_freshness"
+    ]
+  ],
+  "max_active_runs": 1,
+  "sensor_type": "SqlSensor",
+  "mysql_execution": "NOT RUN: no authorized learning MySQL connection or personal schema confirmed",
+  "positive_run": "NOT RUN",
+  "negative_35s_run": "NOT RUN",
+  "screenshots": "NOT CAPTURED: no real database runs",
+  "publication": "NOT PUSHED: required runtime evidence is absent",
+  "unit_tests": {
+    "passed": 8,
+    "database_responses": "stubbed, not real MySQL",
+    "result": "OK"
+  },
+  "pip_check": "No broken requirements found.",
+  "notion_url": "https://app.notion.com/p/401a96dc80e58106af14c76711d45928?pvs=204"
+}

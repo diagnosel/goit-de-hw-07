@@ -1,0 +1,14 @@
+.venv/
+.runtime/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.DS_Store
+airflow.cfg
+airflow.db*
+webserver_config.py
+logs/
+*.pid
+*.zip

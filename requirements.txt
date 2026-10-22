@@ -1,0 +1,4 @@
+apache-airflow==2.11.2
+apache-airflow-providers-mysql==6.5.0
+apache-airflow-providers-common-sql==1.32.0
+mysql-connector-python==9.6.0
