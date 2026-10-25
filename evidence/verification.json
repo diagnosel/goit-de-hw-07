@@ -58,16 +58,17 @@
   ],
   "max_active_runs": 1,
   "sensor_type": "SqlSensor",
-  "mysql_execution": "NOT RUN: no authorized learning MySQL connection or personal schema confirmed",
-  "positive_run": "NOT RUN",
-  "negative_35s_run": "NOT RUN",
-  "screenshots": "NOT CAPTURED: no real database runs",
-  "publication": "NOT PUSHED: required runtime evidence is absent",
+  "mysql_execution": "Real isolated local MySQL 8.4.11; medal projection of pinned public CSV",
+  "positive_run": "5 success runs, delay_seconds=5, all three branches covered",
+  "negative_35s_run": "failed: check_freshness rejected age 35.063458 seconds",
+  "screenshots": "5 real screenshots captured in evidence/screenshots",
+  "publication": "Own educational repository; final publication receipt is recorded separately",
   "unit_tests": {
     "passed": 8,
     "database_responses": "stubbed, not real MySQL",
     "result": "OK"
   },
   "pip_check": "No broken requirements found.",
-  "notion_url": "https://app.notion.com/p/401a96dc80e58106af14c76711d45928?pvs=204"
+  "notion_url": "https://app.notion.com/p/401a96dc80e58106af14c76711d45928?pvs=204",
+  "execution_method": "Airflow dag.test; real SQL and sleep; scheduler/executor enforcement not tested"
 }

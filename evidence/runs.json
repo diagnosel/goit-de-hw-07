@@ -1,0 +1,98 @@
+[
+  {
+    "run_id": "manual__2026-10-25T17:19:09.448059+00:00",
+    "delay_seconds": 35,
+    "state": "failed",
+    "selected": "gold",
+    "tasks": {
+      "create_table": "success",
+      "choose_medal": "success",
+      "branch": "success",
+      "count_bronze": "skipped",
+      "count_silver": "skipped",
+      "count_gold": "success",
+      "delay": "success",
+      "check_freshness": "failed"
+    }
+  },
+  {
+    "run_id": "manual__2026-10-25T17:19:44.726119+00:00",
+    "delay_seconds": 5,
+    "state": "success",
+    "selected": "silver",
+    "tasks": {
+      "create_table": "success",
+      "choose_medal": "success",
+      "branch": "success",
+      "count_bronze": "skipped",
+      "count_silver": "success",
+      "count_gold": "skipped",
+      "delay": "success",
+      "check_freshness": "success"
+    }
+  },
+  {
+    "run_id": "manual__2026-10-25T17:19:49.876227+00:00",
+    "delay_seconds": 5,
+    "state": "success",
+    "selected": "gold",
+    "tasks": {
+      "create_table": "success",
+      "choose_medal": "success",
+      "branch": "success",
+      "count_bronze": "skipped",
+      "count_silver": "skipped",
+      "count_gold": "success",
+      "delay": "success",
+      "check_freshness": "success"
+    }
+  },
+  {
+    "run_id": "manual__2026-10-25T17:19:55.039511+00:00",
+    "delay_seconds": 5,
+    "state": "success",
+    "selected": "silver",
+    "tasks": {
+      "create_table": "success",
+      "choose_medal": "success",
+      "branch": "success",
+      "count_bronze": "skipped",
+      "count_silver": "success",
+      "count_gold": "skipped",
+      "delay": "success",
+      "check_freshness": "success"
+    }
+  },
+  {
+    "run_id": "manual__2026-10-25T17:20:00.181733+00:00",
+    "delay_seconds": 5,
+    "state": "success",
+    "selected": "silver",
+    "tasks": {
+      "create_table": "success",
+      "choose_medal": "success",
+      "branch": "success",
+      "count_bronze": "skipped",
+      "count_silver": "success",
+      "count_gold": "skipped",
+      "delay": "success",
+      "check_freshness": "success"
+    }
+  },
+  {
+    "run_id": "manual__2026-10-25T17:20:05.311138+00:00",
+    "delay_seconds": 5,
+    "state": "success",
+    "selected": "bronze",
+    "tasks": {
+      "create_table": "success",
+      "choose_medal": "success",
+      "branch": "success",
+      "count_bronze": "success",
+      "count_silver": "skipped",
+      "count_gold": "skipped",
+      "delay": "success",
+      "check_freshness": "success"
+    }
+  }
+]

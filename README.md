@@ -1,23 +1,45 @@
 # ДЗ7 — Apache Airflow
 
-Навчальна робота Григорової Ауріки Вадимівни. DAG випадково обирає Bronze, Silver або Gold, рахує відповідні записи в `olympic_dataset.athlete_event_results` та зберігає результат у власну таблицю. Після паузи SQL sensor перевіряє вік запису.
+Навчальна робота Григорової Ауріки Вадимівни. DAG випадково обирає Bronze, Silver або Gold, рахує записи цієї медалі, зберігає результат у власну таблицю MySQL і перевіряє свіжість після паузи.
 
-**Статус: локальна реалізація, ще не готово до здачі.** DAG парситься, 8 локальних тестів пройшли. Навчальне MySQL-підключення та дозволену власну схему не підтверджено. Справжні success/failed запуски, результати SQL і скриншоти ще відсутні. Репозиторій на GitHub ще не створено, push не виконувався.
+## Результат
 
-## Файли
+25 жовтня 2026 року виконано **6 справжніх локальних запусків Airflow**: 5 success з паузою 5 секунд і 1 очікуваний failed з паузою 35 секунд. Успішно перевірено всі три гілки. У негативному запуску sensor прочитав вік **35.063458 секунди** й завершився failed. Дві невибрані гілки в кожному run мають skipped.
 
-- `dags/aurika_hw07.py` — DAG із вісьмома tasks.
-- `tests/test_dag.py` — локальні перевірки з підставленими відповідями MySQL.
-- `docs/guide.uk.md` — пояснення кроків, запуску та перевірки.
-- `docs/report.uk.md` — короткий документ про поточний результат і відсутні докази.
-- `evidence/verification.json` — фактичні версії, граф та статус виконання.
-- `evidence/unit-tests.log` — журнал локальних тестів. Числа в цьому журналі тестові.
+Використано `dag.test()` із реальною MySQL, SQL-запитами та `time.sleep`. Це не mock-тести. Scheduler для такого способу виконання не потрібен. Робота scheduler/executor, паралельність і примусове застосування timeout цими runs не перевірялися. Історія збережена в metadata DB та показана у справжньому локальному Airflow UI. Попередження UI про зупинений scheduler очікуване для цього способу перевірки.
 
-## Середовище
+Середовище: macOS на Apple Silicon, Python 3.12.4, Airflow 2.11.2, MySQL Community 8.4.11, MySQL provider 6.5.0, common-sql 1.32.0, mysql-connector-python 9.6.0. Docker і сервери GoIT не використовувалися.
 
-Перевірено: Python 3.12.4, Airflow 2.11.2, MySQL provider 6.5.0, common-sql provider 1.32.0, mysql-connector-python 9.6.0. Імпорти відповідають Airflow 2; сумісність з Airflow 3 не заявляється. Docker не потрібен.
+## Дані
 
-Команди з папки проєкту:
+Публічний [Olympic_Athlete_Event_Results.csv](https://github.com/sfc-gh-mconsoli/olympic_games_data_hub/blob/21b851f8fbe775332b1bc43b9dac213b4087e80b/dataset/Olympic_Athlete_Event_Results.csv) із зафіксованого commit містить 316 834 записи. У власну локальну `olympic_dataset.athlete_event_results` імпортовано номер кожного вихідного рядка та поле `medal`; інші поля цій задачі не потрібні. Це локальна проєкція публічного CSV, а не копія віддаленої навчальної БД GoIT.
+
+SHA-256 CSV: `4a76c66fc6f69a2f69b4a953298d475fd61fb46a40ac5995ea738bc94695905b`.
+
+Контрольні кількості: Bronze — 14 939, Silver — 14 676, Gold — 15 072. Пораховано записи спортсменів, включно з учасниками команд; це не кількість унікальних подій. Python Counter із CSV, GROUP BY у MySQL і результати DAG збігаються.
+
+## Як працює DAG
+
+```text
+create_table → choose_medal → branch
+                             ├─ count_bronze ─┐
+                             ├─ count_silver ─┼─ delay → check_freshness
+                             └─ count_gold ───┘
+```
+
+Власна таблиця `aurika_hryhorova.aurika_hw07_medal_counts` має чотири поля: `id` з auto increment і primary key, `medal_type`, `count`, `created_at`.
+
+`choose_medal` викликає `random.choice`; окремий BranchPythonOperator читає результат через XCom. Кожна з трьох count tasks має свій тип медалі. SQL-параметри передаються окремо від тексту запиту.
+
+`delay` використовує `none_failed_min_one_success`: skipped-гілки не блокують продовження, failed обраної гілки не приховується. За ним стоїть стандартний `SqlSensor` зі звичайним `all_success`; sensor є єдиною кінцевою task.
+
+Count task повертає id вставленого рядка. Sensor читає лише цей id та обрану медаль. Один run вставляє один рядок, отже перевіряється його найновіший і єдиний результат. Новий запис іншого run не може дати випадковий успіх. `max_active_runs=1`, `max_active_tasks=1`, retries вимкнено.
+
+Час запису та перевірки обчислюється MySQL через `UTC_TIMESTAMP(6)`. DATETIME зберігається в UTC незалежно від системної часової зони. SQL повертає цілі мікросекунди; приймається діапазон `0..30000000`. Майбутній, старий, NULL або відсутній рядок викликає failure. `timeout=10`, `execution_timeout=20`, `soft_fail=False`; старий рядок завершує sensor одразу за failure-умовою.
+
+## Як повторити
+
+Усі команди нижче виконуються з папки цього проєкту. Для нового експерименту потрібні окрема metadata DB та порожній власний MySQL datadir. Наявні результати й навчальні таблиці не очищайте.
 
 ```bash
 python3.12 -m venv .venv
@@ -25,47 +47,57 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt \
   --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.11.2/constraints-3.12.txt
 python -m pip check
+mkdir -p .runtime
+```
+
+Підготуйте власний ізольований MySQL на `127.0.0.1:13307`. У перевірці використано офіційний portable archive [MySQL Community 8.4.11 для macOS ARM64](https://cdn.mysql.com/archives/mysql-8.4/mysql-8.4.11-macos15-arm64.tar.gz), перевірений за [MD5 видавця](https://cdn.mysql.com/archives/mysql-8.4/mysql-8.4.11-macos15-arm64.tar.gz.md5). Системний інсталятор і launchd не використовувалися. Детальні команди запуску й зупинки наведено в `docs/guide.uk.md`.
+
+Для одноразового локального сервера в цій перевірці використано `--initialize-insecure`: root без пароля, доступ лише через loopback, datadir з правами 700. Після роботи сервер зупиняється. Для постійного середовища потрібні власні належні облікові дані; жодних секретів у repo немає.
+
+Завантажте вихідний CSV, перевірте checksum та імпортуйте його:
+
+```bash
+curl -fL 'https://media.githubusercontent.com/media/sfc-gh-mconsoli/olympic_games_data_hub/21b851f8fbe775332b1bc43b9dac213b4087e80b/dataset/Olympic_Athlete_Event_Results.csv' \
+  -o .runtime/Olympic_Athlete_Event_Results.csv
+python scripts/import_source.py .runtime/Olympic_Athlete_Event_Results.csv
+```
+
+Імпортер перевіряє SHA-256 і відмовляється замінювати або повторно наповнювати непорожню source table. Він призначений лише для власного локального сервера. Підготовка схеми й CSV відокремлена від DAG; звичайні запуски DAG тільки читають source table.
+
+Налаштуйте окреме середовище Airflow. Приклад нижче стосується лише зазначеного тимчасового локального сервера:
+
+```bash
 export AIRFLOW_HOME="$PWD/.runtime/airflow"
+export AIRFLOW__CORE__DAGS_FOLDER="$PWD/dags"
 export AIRFLOW__CORE__LOAD_EXAMPLES=False
-python -m unittest discover -s tests -v
+export HW07_SCHEMA=aurika_hryhorova
+export AIRFLOW_CONN_HW07_MYSQL='{"conn_type":"mysql","host":"127.0.0.1","port":13307,"login":"root","schema":"aurika_hryhorova","extra":{"client":"mysql-connector-python"}}'
+airflow db migrate
+python scripts/run_checks.py
+python scripts/verify_results.py
 ```
 
-Це окреме середовище для перевірки коду. Воно не містить навчальної MySQL-бази чи доступу до неї. SQLite metadata Airflow і MySQL з олімпійськими даними — різні бази.
+Runner не запускається на віддаленому host і не перезаписує наявний `evidence/runs.json`. Для нового набору перевірок використовуйте окрему копію робочих файлів без попереднього `runs.json`, нову metadata DB й новий ізольований MySQL. Випадковий вибір не підміняється: runner повторює 5-секундні запуски до появи всіх трьох успішних гілок, максимум 20 runs.
 
-## Підключення та запуск
-
-Потрібен наявний дозволений Airflow connection `hw07_mysql`. У ньому слід вибрати `client: mysql-connector-python` у JSON Extra, бо `mysqlclient` тут не встановлювався. Інші значення підключення беруться лише з навчального середовища. Секрети не записуються у цей репозиторій.
-
-`HW07_SCHEMA` має містити **підтверджену власну навчальну схему**. Значення за замовчуванням `aurika_hryhorova` — пропозиція назви, існування та дозвіл на неї не підтверджено. DAG не створює схему. Він створює лише власну таблицю `aurika_hw07_medal_counts`. Для роботи потрібні SELECT на source table і CREATE, SELECT, INSERT на власну таблицю.
-
-Після підтвердження доступу встанови `HW07_SCHEMA` у процесах Airflow, додай файл у налаштовану папку DAGs, перевір import errors та запусти два різні runs послідовно:
+Для перегляду історії у UI:
 
 ```bash
-airflow dags trigger aurika_hw07_medals \
-  --run-id hw07_success_01 --conf '{"delay_seconds": 5}'
+airflow dags reserialize
+airflow webserver --hostname 127.0.0.1 --port 18087
 ```
 
-Після завершення першого:
+Потрібна локальна конфігурація доступу до UI. Для скриншотів цієї перевірки новий UI мав read-only роль Viewer без облікового запису й слухав лише loopback. Паролі для постійного доступу не створювалися. Для live SELECT таблиці: `python scripts/view_mysql.py`, далі `http://127.0.0.1:18088/`. Це власний read-only переглядач даних, не імітація Airflow UI.
 
-```bash
-airflow dags trigger aurika_hw07_medals \
-  --run-id hw07_stale_01 --conf '{"delay_seconds": 35}'
-```
+## Докази й документ
 
-CLI має використовувати те саме середовище Airflow, що й scheduler та UI. Саме `dags trigger` без запущеного scheduler не виконує tasks. Не запускай локальний scheduler на чужій metadata DB. Детальні очікувані результати, SQL і список потрібних скриншотів наведено в [інструкції](docs/guide.uk.md).
+- `evidence/runs.json` — фактичні run ids, параметри й task states.
+- `evidence/real-verification.json` — незалежна звірка MySQL, XCom id, CSV totals і межі 30 секунд.
+- `evidence/source.json` — URL, SHA-256 та контрольні кількості CSV.
+- `evidence/screenshots/` — справжній Airflow UI та live SELECT таблиці.
+- `docs/report.pdf` — текстовий документ зі скриншотами для здачі.
+- `docs/report.html` — той самий документ для відкриття у браузері; зображення вбудовані.
+- `evidence/unit-tests.log` — окремі 8 mock-тестів коду, які не замінюють реальні runs.
 
-## Принцип перевірки
+Пояснення українською та журнал кроків: [Notion](https://app.notion.com/p/401a96dc80e58106af14c76711d45928?pvs=204). У LMS робота автоматично не надсилається; політику оцінювання обирає користувачка.
 
-Пауза має trigger rule `none_failed_min_one_success`: одна успішна гілка й дві skipped дозволяють продовження; failed гілка його блокує. Sensor має звичайне `all_success` та є єдиною кінцевою task, тому його failure не приховується.
-
-Власна таблиця має рівно чотири поля: `id`, `medal_type`, `count`, `created_at`. Обрана task повертає id вставленого рядка через XCom. Sensor читає лише цей id та обрану медаль. Для цього запуску вставляється один рядок, тож перевіряється найновіший і єдиний результат цього запуску. Новіший рядок іншого запуску на результат не впливає. `max_active_runs=1`, автоматичних retries немає.
-
-Запис і порівняння часу виконуються сервером MySQL через `UTC_TIMESTAMP(6)`. Допустимий вік — від 0 до 30 секунд включно. Старий, майбутній або відсутній запис викликає помилку. Стандартний `SqlSensor` має `timeout=10`, `execution_timeout=20`, `soft_fail=False`; при віці понад 30 секунд він завершується одразу за failure-умовою. Пауза 35 секунд не збільшує допустимий вік запису.
-
-## Перед здачею
-
-Потрібно отримати реальні два runs, скриншоти Airflow UI й таблиці, доповнити документ, повторити review та перевірку секретів. Лише потім можна створювати публічний `diagnosel/goit-de-hw-07`, робити push і перевіряти remote SHA. Поточний архів — проміжна копія, не повна здача. LMS не надсилали.
-
-Документація в [Notion](https://app.notion.com/p/401a96dc80e58106af14c76711d45928?pvs=204).
-
-Джерела: [Airflow 2.11.2 та branching/trigger rules](https://airflow.apache.org/docs/apache-airflow/2.11.2/core-concepts/dags.html), [SqlSensor 1.32.0](https://airflow.apache.org/docs/apache-airflow-providers-common-sql/1.32.0/_api/airflow/providers/common/sql/sensors/sql/index.html), [MySQL provider 6.5.0](https://airflow.apache.org/docs/apache-airflow-providers-mysql/6.5.0/index.html).
+Джерела: [Airflow 2.11.2](https://airflow.apache.org/docs/apache-airflow/2.11.2/core-concepts/dags.html), [SqlSensor 1.32.0](https://airflow.apache.org/docs/apache-airflow-providers-common-sql/1.32.0/_api/airflow/providers/common/sql/sensors/sql/index.html). Локальний спосіб перевірки розглянуто після наданого прикладу [slipkoliudmyla/goit-de-hw-07](https://github.com/slipkoliudmyla/goit-de-hw-07); DAG і докази цієї роботи виконані окремо.

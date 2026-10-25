@@ -1,13 +1,86 @@
-test_branch_uses_random_task_value (test_dag.DagTests.test_branch_uses_random_task_value) ... ok
-test_count_uses_bound_medal_and_returns_insert_id (test_dag.DagTests.test_count_uses_bound_medal_and_returns_insert_id) ... ok
-test_dag_parses_without_database_connection (test_dag.DagTests.test_dag_parses_without_database_connection) ... ok
-test_delay_calls_sleep_with_requested_seconds (test_dag.DagTests.test_delay_calls_sleep_with_requested_seconds) ... ok
+<workspace>/.venv/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+<workspace>/.venv/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+test_branch_uses_random_task_value (test_dag.DagTests.test_branch_uses_random_task_value) ... [2026-10-25T19:38:54.606+0200] {aurika_hw07.py:45} INFO - Selected medal: Bronze
+[2026-10-25T19:38:54.607+0200] {aurika_hw07.py:45} INFO - Selected medal: Silver
+[2026-10-25T19:38:54.607+0200] {aurika_hw07.py:45} INFO - Selected medal: Gold
+ok
+test_count_uses_bound_medal_and_returns_insert_id (test_dag.DagTests.test_count_uses_bound_medal_and_returns_insert_id) ... [2026-10-25T19:38:54.608+0200] {aurika_hw07.py:78} INFO - Inserted id=17, medal=Bronze, count=123; created_at uses UTC
+[2026-10-25T19:38:54.609+0200] {aurika_hw07.py:78} INFO - Inserted id=17, medal=Silver, count=123; created_at uses UTC
+[2026-10-25T19:38:54.610+0200] {aurika_hw07.py:78} INFO - Inserted id=17, medal=Gold, count=123; created_at uses UTC
+ok
+test_dag_parses_without_database_connection (test_dag.DagTests.test_dag_parses_without_database_connection) ... [2026-10-25T19:38:54.610+0200] {dagbag.py:588} INFO - Filling up the DagBag from <workspace>/goit-de-hw-07/dags
+ok
+test_delay_calls_sleep_with_requested_seconds (test_dag.DagTests.test_delay_calls_sleep_with_requested_seconds) ... [2026-10-25T19:38:54.614+0200] {aurika_hw07.py:86} INFO - Sleeping for 35 seconds
+ok
 test_join_and_sensor_limits (test_dag.DagTests.test_join_and_sensor_limits) ... ok
-test_real_sql_sensor_poke_with_stubbed_database_results (test_dag.DagTests.test_real_sql_sensor_poke_with_stubbed_database_results) ... ok
+test_real_sql_sensor_poke_with_stubbed_database_results (test_dag.DagTests.test_real_sql_sensor_poke_with_stubbed_database_results) ... [2026-10-25T19:38:54.615+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ["{{ ti.xcom_pull(task_ids='count_' + ti.xcom_pull(task_ids='choose_medal').lower()) }}", "{{ ti.xcom_pull(task_ids='choose_medal') }}"])
+[2026-10-25T19:38:54.615+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 0.0 seconds; allowed: 0..30
+[2026-10-25T19:38:54.615+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ["{{ ti.xcom_pull(task_ids='count_' + ti.xcom_pull(task_ids='choose_medal').lower()) }}", "{{ ti.xcom_pull(task_ids='choose_medal') }}"])
+[2026-10-25T19:38:54.615+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 5.0 seconds; allowed: 0..30
+[2026-10-25T19:38:54.616+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ["{{ ti.xcom_pull(task_ids='count_' + ti.xcom_pull(task_ids='choose_medal').lower()) }}", "{{ ti.xcom_pull(task_ids='choose_medal') }}"])
+[2026-10-25T19:38:54.616+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 30.0 seconds; allowed: 0..30
+[2026-10-25T19:38:54.616+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ["{{ ti.xcom_pull(task_ids='count_' + ti.xcom_pull(task_ids='choose_medal').lower()) }}", "{{ ti.xcom_pull(task_ids='choose_medal') }}"])
+[2026-10-25T19:38:54.616+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 30.000001 seconds; allowed: 0..30
+[2026-10-25T19:38:54.617+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ["{{ ti.xcom_pull(task_ids='count_' + ti.xcom_pull(task_ids='choose_medal').lower()) }}", "{{ ti.xcom_pull(task_ids='choose_medal') }}"])
+[2026-10-25T19:38:54.617+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 35.0 seconds; allowed: 0..30
+[2026-10-25T19:38:54.617+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ["{{ ti.xcom_pull(task_ids='count_' + ti.xcom_pull(task_ids='choose_medal').lower()) }}", "{{ ti.xcom_pull(task_ids='choose_medal') }}"])
+[2026-10-25T19:38:54.617+0200] {aurika_hw07.py:96} INFO - Age of this run's row: -1e-06 seconds; allowed: 0..30
+[2026-10-25T19:38:54.617+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ["{{ ti.xcom_pull(task_ids='count_' + ti.xcom_pull(task_ids='choose_medal').lower()) }}", "{{ ti.xcom_pull(task_ids='choose_medal') }}"])
+[2026-10-25T19:38:54.618+0200] {aurika_hw07.py:96} INFO - Age of this run's row: None seconds; allowed: 0..30
+[2026-10-25T19:38:54.618+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ["{{ ti.xcom_pull(task_ids='count_' + ti.xcom_pull(task_ids='choose_medal').lower()) }}", "{{ ti.xcom_pull(task_ids='choose_medal') }}"])
+ok
 test_sensor_parameters_scope_to_current_run (test_dag.DagTests.test_sensor_parameters_scope_to_current_run) ... ok
 test_write_failure_rolls_back (test_dag.DagTests.test_write_failure_rolls_back) ... ok
 
 ----------------------------------------------------------------------
-Ran 8 tests in 0.018s
+Ran 8 tests in 0.015s
 
 OK

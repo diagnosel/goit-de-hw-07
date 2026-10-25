@@ -1,0 +1,829 @@
+<workspace>/.venv/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+<workspace>/.venv/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-10-25T19:19:09.447+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25T19:19:09.458+0200] {dag.py:4435} INFO - dagrun id: aurika_hw07_medals
+[2026-10-25T19:19:09.462+0200] {dag.py:4451} INFO - created dagrun <DagRun aurika_hw07_medals @ 2026-10-25 17:19:09.448059+00:00: manual__2026-10-25T17:19:09.448059+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-10-25T19:19:09.473+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=create_table map_index=-1
+[2026-10-25T19:19:09.473+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.create_table manual__2026-10-25T17:19:09.448059+00:00 [scheduled]>
+[2026-10-25 19:19:09,496] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.496+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.498+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:09.504+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:09,571] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25T19:19:09.571+0200] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25 19:19:09,574] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:09.574+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25 19:19:09,575] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:09.575+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:09.577+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:09.577+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=create_table, run_id=manual__2026-10-25T17:19:09.448059+00:00, execution_date=20261025T171909, start_date=, end_date=20261025T171909
+[2026-10-25T19:19:09.581+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=create_table map_index=-1
+[2026-10-25T19:19:09.585+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=choose_medal map_index=-1
+[2026-10-25T19:19:09.585+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.choose_medal manual__2026-10-25T17:19:09.448059+00:00 [scheduled]>
+[2026-10-25 19:19:09,590] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.590+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.591+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:09.591+0200] {aurika_hw07.py:45} INFO - Selected medal: Gold
+[2026-10-25 19:19:09,591] {python.py:240} INFO - Done. Returned value was: Gold
+[2026-10-25T19:19:09.591+0200] {python.py:240} INFO - Done. Returned value was: Gold
+[2026-10-25T19:19:09.594+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:09.594+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=choose_medal, run_id=manual__2026-10-25T17:19:09.448059+00:00, execution_date=20261025T171909, start_date=, end_date=20261025T171909
+[2026-10-25T19:19:09.598+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=choose_medal map_index=-1
+[2026-10-25T19:19:09.607+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=branch map_index=-1
+[2026-10-25T19:19:09.607+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.branch manual__2026-10-25T17:19:09.448059+00:00 [scheduled]>
+[2026-10-25 19:19:09,611] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.611+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.611+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25 19:19:09,613] {python.py:240} INFO - Done. Returned value was: count_gold
+[2026-10-25T19:19:09.613+0200] {python.py:240} INFO - Done. Returned value was: count_gold
+[2026-10-25 19:19:09,613] {branch.py:38} INFO - Branch into count_gold
+[2026-10-25T19:19:09.613+0200] {branch.py:38} INFO - Branch into count_gold
+[2026-10-25T19:19:09.613+0200] {skipmixin.py:233} INFO - Following branch {'count_gold'}
+[2026-10-25T19:19:09.614+0200] {skipmixin.py:281} INFO - Skipping tasks [('count_bronze', -1), ('count_silver', -1)]
+[2026-10-25T19:19:09.618+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:09.618+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=branch, run_id=manual__2026-10-25T17:19:09.448059+00:00, execution_date=20261025T171909, start_date=, end_date=20261025T171909
+[2026-10-25T19:19:09.620+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=branch map_index=-1
+[2026-10-25T19:19:09.623+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=count_gold map_index=-1
+[2026-10-25T19:19:09.623+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.count_gold manual__2026-10-25T17:19:09.448059+00:00 [scheduled]>
+[2026-10-25 19:19:09,628] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.628+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.628+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:09.628+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25T19:19:09.650+0200] {aurika_hw07.py:78} INFO - Inserted id=1, medal=Gold, count=15072; created_at uses UTC
+[2026-10-25 19:19:09,651] {python.py:240} INFO - Done. Returned value was: 1
+[2026-10-25T19:19:09.651+0200] {python.py:240} INFO - Done. Returned value was: 1
+[2026-10-25T19:19:09.653+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:09.653+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=count_gold, run_id=manual__2026-10-25T17:19:09.448059+00:00, execution_date=20261025T171909, start_date=, end_date=20261025T171909
+[2026-10-25T19:19:09.656+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=count_gold map_index=-1
+[2026-10-25T19:19:09.659+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=delay map_index=-1
+[2026-10-25T19:19:09.659+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.delay manual__2026-10-25T17:19:09.448059+00:00 [scheduled]>
+[2026-10-25 19:19:09,664] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.664+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:09.664+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:09.664+0200] {aurika_hw07.py:86} INFO - Sleeping for 35 seconds
+[2026-10-25 19:19:44,670] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:44.670+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:44.679+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:44.679+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=delay, run_id=manual__2026-10-25T17:19:09.448059+00:00, execution_date=20261025T171909, start_date=, end_date=20261025T171944
+[2026-10-25T19:19:44.684+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=delay map_index=-1
+[2026-10-25T19:19:44.689+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=check_freshness map_index=-1
+[2026-10-25T19:19:44.689+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.check_freshness manual__2026-10-25T17:19:09.448059+00:00 [scheduled]>
+[2026-10-25 19:19:44,699] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:44.699+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:09.448059+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:09.448059+00:00'
+[2026-10-25T19:19:44.700+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:44.700+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:44,709] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['1', 'Gold'])
+[2026-10-25T19:19:44.709+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['1', 'Gold'])
+[2026-10-25T19:19:44.710+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:44,713] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['1', 'Gold']
+[2026-10-25T19:19:44.713+0200] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['1', 'Gold']
+[2026-10-25 19:19:44,713] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:44.713+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:44.714+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 35.063458 seconds; allowed: 0..30
+[2026-10-25 19:19:44,715] {taskinstance.py:3337} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 771, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 425, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/sensors/base.py", line 309, in execute
+    raise e
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/sensors/base.py", line 289, in execute
+    poke_return = self.poke(context)
+                  ^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/providers/common/sql/sensors/sql.py", line 113, in poke
+    raise AirflowException(message)
+airflow.exceptions.AirflowException: Failure criteria met. self.failure(35063458) returned True
+[2026-10-25T19:19:44.715+0200] {taskinstance.py:3337} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 771, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 425, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/sensors/base.py", line 309, in execute
+    raise e
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/sensors/base.py", line 289, in execute
+    poke_return = self.poke(context)
+                  ^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/providers/common/sql/sensors/sql.py", line 113, in poke
+    raise AirflowException(message)
+airflow.exceptions.AirflowException: Failure criteria met. self.failure(35063458) returned True
+[2026-10-25T19:19:44.717+0200] {taskinstance.py:1242} INFO - Marking task as FAILED. dag_id=aurika_hw07_medals, task_id=check_freshness, run_id=manual__2026-10-25T17:19:09.448059+00:00, execution_date=20261025T171909, start_date=, end_date=20261025T171944
+[2026-10-25T19:19:44.721+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:44.721+0200] {dag.py:3090} ERROR - Task failed; ti=<TaskInstance: aurika_hw07_medals.check_freshness manual__2026-10-25T17:19:09.448059+00:00 [failed]>
+Traceback (most recent call last):
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/dag.py", line 3083, in test
+    _run_task(
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/dag.py", line 4400, in _run_task
+    ti._run_raw_task(session=session, raise_on_defer=inline_trigger, mark_success=mark_success)
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3030, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 282, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3209, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 771, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 425, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/sensors/base.py", line 309, in execute
+    raise e
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/sensors/base.py", line 289, in execute
+    poke_return = self.poke(context)
+                  ^^^^^^^^^^^^^^^^^^
+  File "<workspace>/.venv/lib/python3.12/site-packages/airflow/providers/common/sql/sensors/sql.py", line 113, in poke
+    raise AirflowException(message)
+airflow.exceptions.AirflowException: Failure criteria met. self.failure(35063458) returned True
+[2026-10-25T19:19:44.723+0200] {dagrun.py:823} ERROR - Marking run <DagRun aurika_hw07_medals @ 2026-10-25 17:19:09.448059+00:00: manual__2026-10-25T17:19:09.448059+00:00, state:running, queued_at: None. externally triggered: False> failed
+[2026-10-25T19:19:44.723+0200] {dagrun.py:905} INFO - DagRun Finished: dag_id=aurika_hw07_medals, execution_date=2026-10-25 17:19:09.448059+00:00, run_id=manual__2026-10-25T17:19:09.448059+00:00, run_start_date=2026-10-25 17:19:09.448059+00:00, run_end_date=2026-10-25 17:19:44.723653+00:00, run_duration=35.275594, state=failed, external_trigger=False, run_type=manual, data_interval_start=2026-10-25 17:19:09.448059+00:00, data_interval_end=2026-10-25 17:19:09.448059+00:00, dag_hash=None
+[2026-10-25T19:19:44.727+0200] {dag.py:4435} INFO - dagrun id: aurika_hw07_medals
+[2026-10-25T19:19:44.730+0200] {dag.py:4451} INFO - created dagrun <DagRun aurika_hw07_medals @ 2026-10-25 17:19:44.726119+00:00: manual__2026-10-25T17:19:44.726119+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-10-25T19:19:44.733+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=create_table map_index=-1
+[2026-10-25T19:19:44.733+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.create_table manual__2026-10-25T17:19:44.726119+00:00 [scheduled]>
+[2026-10-25 19:19:44,738] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.738+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.739+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:44.739+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:44,741] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25T19:19:44.741+0200] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25 19:19:44,742] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:44.742+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25 19:19:44,742] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:44.742+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:44.743+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:44.743+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=create_table, run_id=manual__2026-10-25T17:19:44.726119+00:00, execution_date=20261025T171944, start_date=, end_date=20261025T171944
+[2026-10-25T19:19:44.746+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=create_table map_index=-1
+[2026-10-25T19:19:44.749+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=choose_medal map_index=-1
+[2026-10-25T19:19:44.749+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.choose_medal manual__2026-10-25T17:19:44.726119+00:00 [scheduled]>
+[2026-10-25 19:19:44,755] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.755+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.755+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:44.755+0200] {aurika_hw07.py:45} INFO - Selected medal: Silver
+[2026-10-25 19:19:44,755] {python.py:240} INFO - Done. Returned value was: Silver
+[2026-10-25T19:19:44.755+0200] {python.py:240} INFO - Done. Returned value was: Silver
+[2026-10-25T19:19:44.757+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:44.758+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=choose_medal, run_id=manual__2026-10-25T17:19:44.726119+00:00, execution_date=20261025T171944, start_date=, end_date=20261025T171944
+[2026-10-25T19:19:44.760+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=choose_medal map_index=-1
+[2026-10-25T19:19:44.763+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=branch map_index=-1
+[2026-10-25T19:19:44.764+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.branch manual__2026-10-25T17:19:44.726119+00:00 [scheduled]>
+[2026-10-25 19:19:44,769] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.769+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.769+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25 19:19:44,770] {python.py:240} INFO - Done. Returned value was: count_silver
+[2026-10-25T19:19:44.770+0200] {python.py:240} INFO - Done. Returned value was: count_silver
+[2026-10-25 19:19:44,770] {branch.py:38} INFO - Branch into count_silver
+[2026-10-25T19:19:44.770+0200] {branch.py:38} INFO - Branch into count_silver
+[2026-10-25T19:19:44.770+0200] {skipmixin.py:233} INFO - Following branch {'count_silver'}
+[2026-10-25T19:19:44.772+0200] {skipmixin.py:281} INFO - Skipping tasks [('count_bronze', -1), ('count_gold', -1)]
+[2026-10-25T19:19:44.775+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:44.775+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=branch, run_id=manual__2026-10-25T17:19:44.726119+00:00, execution_date=20261025T171944, start_date=, end_date=20261025T171944
+[2026-10-25T19:19:44.777+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=branch map_index=-1
+[2026-10-25T19:19:44.782+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=count_silver map_index=-1
+[2026-10-25T19:19:44.782+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.count_silver manual__2026-10-25T17:19:44.726119+00:00 [scheduled]>
+[2026-10-25 19:19:44,787] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.787+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.787+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:44.787+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25T19:19:44.809+0200] {aurika_hw07.py:78} INFO - Inserted id=2, medal=Silver, count=14676; created_at uses UTC
+[2026-10-25 19:19:44,809] {python.py:240} INFO - Done. Returned value was: 2
+[2026-10-25T19:19:44.809+0200] {python.py:240} INFO - Done. Returned value was: 2
+[2026-10-25T19:19:44.813+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:44.813+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=count_silver, run_id=manual__2026-10-25T17:19:44.726119+00:00, execution_date=20261025T171944, start_date=, end_date=20261025T171944
+[2026-10-25T19:19:44.815+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=count_silver map_index=-1
+[2026-10-25T19:19:44.819+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=delay map_index=-1
+[2026-10-25T19:19:44.819+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.delay manual__2026-10-25T17:19:44.726119+00:00 [scheduled]>
+[2026-10-25 19:19:44,824] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.824+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:44.824+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:44.824+0200] {aurika_hw07.py:86} INFO - Sleeping for 5 seconds
+[2026-10-25 19:19:49,827] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:49.827+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:49.832+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:49.833+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=delay, run_id=manual__2026-10-25T17:19:44.726119+00:00, execution_date=20261025T171944, start_date=, end_date=20261025T171949
+[2026-10-25T19:19:49.838+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=delay map_index=-1
+[2026-10-25T19:19:49.846+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=check_freshness map_index=-1
+[2026-10-25T19:19:49.846+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.check_freshness manual__2026-10-25T17:19:44.726119+00:00 [scheduled]>
+[2026-10-25 19:19:49,860] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:49.860+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:44.726119+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:44.726119+00:00'
+[2026-10-25T19:19:49.860+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:49.861+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:49,861] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['2', 'Silver'])
+[2026-10-25T19:19:49.861+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['2', 'Silver'])
+[2026-10-25T19:19:49.861+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:49,865] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['2', 'Silver']
+[2026-10-25T19:19:49.865+0200] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['2', 'Silver']
+[2026-10-25 19:19:49,866] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:49.866+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:49.866+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 5.056776 seconds; allowed: 0..30
+[2026-10-25 19:19:49,866] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:19:49.866+0200] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:19:49.867+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:49.867+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=check_freshness, run_id=manual__2026-10-25T17:19:44.726119+00:00, execution_date=20261025T171944, start_date=, end_date=20261025T171949
+[2026-10-25T19:19:49.871+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=check_freshness map_index=-1
+[2026-10-25T19:19:49.872+0200] {dagrun.py:854} INFO - Marking run <DagRun aurika_hw07_medals @ 2026-10-25 17:19:44.726119+00:00: manual__2026-10-25T17:19:44.726119+00:00, state:running, queued_at: None. externally triggered: False> successful
+[2026-10-25T19:19:49.872+0200] {dagrun.py:905} INFO - DagRun Finished: dag_id=aurika_hw07_medals, execution_date=2026-10-25 17:19:44.726119+00:00, run_id=manual__2026-10-25T17:19:44.726119+00:00, run_start_date=2026-10-25 17:19:44.726119+00:00, run_end_date=2026-10-25 17:19:49.872772+00:00, run_duration=5.146653, state=success, external_trigger=False, run_type=manual, data_interval_start=2026-10-25 17:19:44.726119+00:00, data_interval_end=2026-10-25 17:19:44.726119+00:00, dag_hash=None
+[2026-10-25T19:19:49.877+0200] {dag.py:4435} INFO - dagrun id: aurika_hw07_medals
+[2026-10-25T19:19:49.879+0200] {dag.py:4451} INFO - created dagrun <DagRun aurika_hw07_medals @ 2026-10-25 17:19:49.876227+00:00: manual__2026-10-25T17:19:49.876227+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-10-25T19:19:49.883+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=create_table map_index=-1
+[2026-10-25T19:19:49.883+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.create_table manual__2026-10-25T17:19:49.876227+00:00 [scheduled]>
+[2026-10-25 19:19:49,888] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.888+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.888+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:49.889+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:49,891] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25T19:19:49.891+0200] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25 19:19:49,892] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:49.892+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25 19:19:49,892] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:49.892+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:49.893+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:49.893+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=create_table, run_id=manual__2026-10-25T17:19:49.876227+00:00, execution_date=20261025T171949, start_date=, end_date=20261025T171949
+[2026-10-25T19:19:49.896+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=create_table map_index=-1
+[2026-10-25T19:19:49.900+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=choose_medal map_index=-1
+[2026-10-25T19:19:49.900+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.choose_medal manual__2026-10-25T17:19:49.876227+00:00 [scheduled]>
+[2026-10-25 19:19:49,906] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.906+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.906+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:49.906+0200] {aurika_hw07.py:45} INFO - Selected medal: Gold
+[2026-10-25 19:19:49,906] {python.py:240} INFO - Done. Returned value was: Gold
+[2026-10-25T19:19:49.906+0200] {python.py:240} INFO - Done. Returned value was: Gold
+[2026-10-25T19:19:49.908+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:49.908+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=choose_medal, run_id=manual__2026-10-25T17:19:49.876227+00:00, execution_date=20261025T171949, start_date=, end_date=20261025T171949
+[2026-10-25T19:19:49.910+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=choose_medal map_index=-1
+[2026-10-25T19:19:49.913+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=branch map_index=-1
+[2026-10-25T19:19:49.913+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.branch manual__2026-10-25T17:19:49.876227+00:00 [scheduled]>
+[2026-10-25 19:19:49,918] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.918+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.918+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25 19:19:49,919] {python.py:240} INFO - Done. Returned value was: count_gold
+[2026-10-25T19:19:49.919+0200] {python.py:240} INFO - Done. Returned value was: count_gold
+[2026-10-25 19:19:49,919] {branch.py:38} INFO - Branch into count_gold
+[2026-10-25T19:19:49.919+0200] {branch.py:38} INFO - Branch into count_gold
+[2026-10-25T19:19:49.919+0200] {skipmixin.py:233} INFO - Following branch {'count_gold'}
+[2026-10-25T19:19:49.920+0200] {skipmixin.py:281} INFO - Skipping tasks [('count_bronze', -1), ('count_silver', -1)]
+[2026-10-25T19:19:49.922+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:49.922+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=branch, run_id=manual__2026-10-25T17:19:49.876227+00:00, execution_date=20261025T171949, start_date=, end_date=20261025T171949
+[2026-10-25T19:19:49.924+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=branch map_index=-1
+[2026-10-25T19:19:49.927+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=count_gold map_index=-1
+[2026-10-25T19:19:49.927+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.count_gold manual__2026-10-25T17:19:49.876227+00:00 [scheduled]>
+[2026-10-25 19:19:49,933] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.933+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.933+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:49.933+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25T19:19:49.954+0200] {aurika_hw07.py:78} INFO - Inserted id=3, medal=Gold, count=15072; created_at uses UTC
+[2026-10-25 19:19:49,954] {python.py:240} INFO - Done. Returned value was: 3
+[2026-10-25T19:19:49.954+0200] {python.py:240} INFO - Done. Returned value was: 3
+[2026-10-25T19:19:49.956+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:49.956+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=count_gold, run_id=manual__2026-10-25T17:19:49.876227+00:00, execution_date=20261025T171949, start_date=, end_date=20261025T171949
+[2026-10-25T19:19:49.958+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=count_gold map_index=-1
+[2026-10-25T19:19:49.961+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=delay map_index=-1
+[2026-10-25T19:19:49.961+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.delay manual__2026-10-25T17:19:49.876227+00:00 [scheduled]>
+[2026-10-25 19:19:49,966] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.966+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:49.966+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:49.966+0200] {aurika_hw07.py:86} INFO - Sleeping for 5 seconds
+[2026-10-25 19:19:54,971] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:54.971+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:54.976+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:54.976+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=delay, run_id=manual__2026-10-25T17:19:49.876227+00:00, execution_date=20261025T171949, start_date=, end_date=20261025T171954
+[2026-10-25T19:19:54.982+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=delay map_index=-1
+[2026-10-25T19:19:54.987+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=check_freshness map_index=-1
+[2026-10-25T19:19:54.987+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.check_freshness manual__2026-10-25T17:19:49.876227+00:00 [scheduled]>
+[2026-10-25 19:19:54,999] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:54.999+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:49.876227+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:49.876227+00:00'
+[2026-10-25T19:19:54.999+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:54.999+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:54,999] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['3', 'Gold'])
+[2026-10-25T19:19:54.999+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['3', 'Gold'])
+[2026-10-25T19:19:55.000+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:55,003] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['3', 'Gold']
+[2026-10-25T19:19:55.003+0200] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['3', 'Gold']
+[2026-10-25 19:19:55,003] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:55.003+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:55.004+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 5.049794 seconds; allowed: 0..30
+[2026-10-25 19:19:55,004] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:19:55.004+0200] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:19:55.006+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:55.006+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=check_freshness, run_id=manual__2026-10-25T17:19:49.876227+00:00, execution_date=20261025T171949, start_date=, end_date=20261025T171955
+[2026-10-25T19:19:55.035+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=check_freshness map_index=-1
+[2026-10-25T19:19:55.036+0200] {dagrun.py:854} INFO - Marking run <DagRun aurika_hw07_medals @ 2026-10-25 17:19:49.876227+00:00: manual__2026-10-25T17:19:49.876227+00:00, state:running, queued_at: None. externally triggered: False> successful
+[2026-10-25T19:19:55.036+0200] {dagrun.py:905} INFO - DagRun Finished: dag_id=aurika_hw07_medals, execution_date=2026-10-25 17:19:49.876227+00:00, run_id=manual__2026-10-25T17:19:49.876227+00:00, run_start_date=2026-10-25 17:19:49.876227+00:00, run_end_date=2026-10-25 17:19:55.036525+00:00, run_duration=5.160298, state=success, external_trigger=False, run_type=manual, data_interval_start=2026-10-25 17:19:49.876227+00:00, data_interval_end=2026-10-25 17:19:49.876227+00:00, dag_hash=None
+[2026-10-25T19:19:55.040+0200] {dag.py:4435} INFO - dagrun id: aurika_hw07_medals
+[2026-10-25T19:19:55.042+0200] {dag.py:4451} INFO - created dagrun <DagRun aurika_hw07_medals @ 2026-10-25 17:19:55.039511+00:00: manual__2026-10-25T17:19:55.039511+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-10-25T19:19:55.046+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=create_table map_index=-1
+[2026-10-25T19:19:55.046+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.create_table manual__2026-10-25T17:19:55.039511+00:00 [scheduled]>
+[2026-10-25 19:19:55,051] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.051+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.051+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:55.051+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:19:55,054] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25T19:19:55.054+0200] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25 19:19:55,054] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:19:55.054+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25 19:19:55,055] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:55.055+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:19:55.056+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:55.056+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=create_table, run_id=manual__2026-10-25T17:19:55.039511+00:00, execution_date=20261025T171955, start_date=, end_date=20261025T171955
+[2026-10-25T19:19:55.058+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=create_table map_index=-1
+[2026-10-25T19:19:55.061+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=choose_medal map_index=-1
+[2026-10-25T19:19:55.061+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.choose_medal manual__2026-10-25T17:19:55.039511+00:00 [scheduled]>
+[2026-10-25 19:19:55,066] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.066+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.066+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:55.066+0200] {aurika_hw07.py:45} INFO - Selected medal: Silver
+[2026-10-25 19:19:55,066] {python.py:240} INFO - Done. Returned value was: Silver
+[2026-10-25T19:19:55.066+0200] {python.py:240} INFO - Done. Returned value was: Silver
+[2026-10-25T19:19:55.068+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:55.068+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=choose_medal, run_id=manual__2026-10-25T17:19:55.039511+00:00, execution_date=20261025T171955, start_date=, end_date=20261025T171955
+[2026-10-25T19:19:55.071+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=choose_medal map_index=-1
+[2026-10-25T19:19:55.074+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=branch map_index=-1
+[2026-10-25T19:19:55.074+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.branch manual__2026-10-25T17:19:55.039511+00:00 [scheduled]>
+[2026-10-25 19:19:55,079] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.079+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.079+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25 19:19:55,079] {python.py:240} INFO - Done. Returned value was: count_silver
+[2026-10-25T19:19:55.079+0200] {python.py:240} INFO - Done. Returned value was: count_silver
+[2026-10-25 19:19:55,080] {branch.py:38} INFO - Branch into count_silver
+[2026-10-25T19:19:55.080+0200] {branch.py:38} INFO - Branch into count_silver
+[2026-10-25T19:19:55.080+0200] {skipmixin.py:233} INFO - Following branch {'count_silver'}
+[2026-10-25T19:19:55.080+0200] {skipmixin.py:281} INFO - Skipping tasks [('count_bronze', -1), ('count_gold', -1)]
+[2026-10-25T19:19:55.083+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:55.083+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=branch, run_id=manual__2026-10-25T17:19:55.039511+00:00, execution_date=20261025T171955, start_date=, end_date=20261025T171955
+[2026-10-25T19:19:55.085+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=branch map_index=-1
+[2026-10-25T19:19:55.089+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=count_silver map_index=-1
+[2026-10-25T19:19:55.089+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.count_silver manual__2026-10-25T17:19:55.039511+00:00 [scheduled]>
+[2026-10-25 19:19:55,093] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.093+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.094+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:55.094+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25T19:19:55.116+0200] {aurika_hw07.py:78} INFO - Inserted id=4, medal=Silver, count=14676; created_at uses UTC
+[2026-10-25 19:19:55,116] {python.py:240} INFO - Done. Returned value was: 4
+[2026-10-25T19:19:55.116+0200] {python.py:240} INFO - Done. Returned value was: 4
+[2026-10-25T19:19:55.118+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:19:55.118+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=count_silver, run_id=manual__2026-10-25T17:19:55.039511+00:00, execution_date=20261025T171955, start_date=, end_date=20261025T171955
+[2026-10-25T19:19:55.120+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=count_silver map_index=-1
+[2026-10-25T19:19:55.124+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=delay map_index=-1
+[2026-10-25T19:19:55.124+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.delay manual__2026-10-25T17:19:55.039511+00:00 [scheduled]>
+[2026-10-25 19:19:55,128] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.128+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:19:55.128+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:19:55.129+0200] {aurika_hw07.py:86} INFO - Sleeping for 5 seconds
+[2026-10-25 19:20:00,134] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:00.134+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:00.137+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:00.138+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=delay, run_id=manual__2026-10-25T17:19:55.039511+00:00, execution_date=20261025T171955, start_date=, end_date=20261025T172000
+[2026-10-25T19:20:00.144+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=delay map_index=-1
+[2026-10-25T19:20:00.152+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=check_freshness map_index=-1
+[2026-10-25T19:20:00.152+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.check_freshness manual__2026-10-25T17:19:55.039511+00:00 [scheduled]>
+[2026-10-25 19:20:00,166] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:20:00.166+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:19:55.039511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:19:55.039511+00:00'
+[2026-10-25T19:20:00.166+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:00.167+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:20:00,167] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['4', 'Silver'])
+[2026-10-25T19:20:00.167+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['4', 'Silver'])
+[2026-10-25T19:20:00.167+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:20:00,170] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['4', 'Silver']
+[2026-10-25T19:20:00.170+0200] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['4', 'Silver']
+[2026-10-25 19:20:00,171] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:20:00.171+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:20:00.171+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 5.055259 seconds; allowed: 0..30
+[2026-10-25 19:20:00,171] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:20:00.171+0200] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:20:00.173+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:00.173+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=check_freshness, run_id=manual__2026-10-25T17:19:55.039511+00:00, execution_date=20261025T171955, start_date=, end_date=20261025T172000
+[2026-10-25T19:20:00.177+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=check_freshness map_index=-1
+[2026-10-25T19:20:00.178+0200] {dagrun.py:854} INFO - Marking run <DagRun aurika_hw07_medals @ 2026-10-25 17:19:55.039511+00:00: manual__2026-10-25T17:19:55.039511+00:00, state:running, queued_at: None. externally triggered: False> successful
+[2026-10-25T19:20:00.178+0200] {dagrun.py:905} INFO - DagRun Finished: dag_id=aurika_hw07_medals, execution_date=2026-10-25 17:19:55.039511+00:00, run_id=manual__2026-10-25T17:19:55.039511+00:00, run_start_date=2026-10-25 17:19:55.039511+00:00, run_end_date=2026-10-25 17:20:00.178635+00:00, run_duration=5.139124, state=success, external_trigger=False, run_type=manual, data_interval_start=2026-10-25 17:19:55.039511+00:00, data_interval_end=2026-10-25 17:19:55.039511+00:00, dag_hash=None
+[2026-10-25T19:20:00.182+0200] {dag.py:4435} INFO - dagrun id: aurika_hw07_medals
+[2026-10-25T19:20:00.184+0200] {dag.py:4451} INFO - created dagrun <DagRun aurika_hw07_medals @ 2026-10-25 17:20:00.181733+00:00: manual__2026-10-25T17:20:00.181733+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-10-25T19:20:00.189+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=create_table map_index=-1
+[2026-10-25T19:20:00.189+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.create_table manual__2026-10-25T17:20:00.181733+00:00 [scheduled]>
+[2026-10-25 19:20:00,194] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.194+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.195+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:00.195+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:20:00,198] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25T19:20:00.198+0200] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25 19:20:00,198] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:20:00.198+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25 19:20:00,199] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:00.199+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:00.200+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:00.200+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=create_table, run_id=manual__2026-10-25T17:20:00.181733+00:00, execution_date=20261025T172000, start_date=, end_date=20261025T172000
+[2026-10-25T19:20:00.203+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=create_table map_index=-1
+[2026-10-25T19:20:00.207+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=choose_medal map_index=-1
+[2026-10-25T19:20:00.207+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.choose_medal manual__2026-10-25T17:20:00.181733+00:00 [scheduled]>
+[2026-10-25 19:20:00,212] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.212+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.212+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:00.212+0200] {aurika_hw07.py:45} INFO - Selected medal: Silver
+[2026-10-25 19:20:00,212] {python.py:240} INFO - Done. Returned value was: Silver
+[2026-10-25T19:20:00.212+0200] {python.py:240} INFO - Done. Returned value was: Silver
+[2026-10-25T19:20:00.214+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:00.215+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=choose_medal, run_id=manual__2026-10-25T17:20:00.181733+00:00, execution_date=20261025T172000, start_date=, end_date=20261025T172000
+[2026-10-25T19:20:00.217+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=choose_medal map_index=-1
+[2026-10-25T19:20:00.220+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=branch map_index=-1
+[2026-10-25T19:20:00.220+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.branch manual__2026-10-25T17:20:00.181733+00:00 [scheduled]>
+[2026-10-25 19:20:00,225] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.225+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.225+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25 19:20:00,226] {python.py:240} INFO - Done. Returned value was: count_silver
+[2026-10-25T19:20:00.226+0200] {python.py:240} INFO - Done. Returned value was: count_silver
+[2026-10-25 19:20:00,226] {branch.py:38} INFO - Branch into count_silver
+[2026-10-25T19:20:00.226+0200] {branch.py:38} INFO - Branch into count_silver
+[2026-10-25T19:20:00.226+0200] {skipmixin.py:233} INFO - Following branch {'count_silver'}
+[2026-10-25T19:20:00.226+0200] {skipmixin.py:281} INFO - Skipping tasks [('count_bronze', -1), ('count_gold', -1)]
+[2026-10-25T19:20:00.229+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:00.229+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=branch, run_id=manual__2026-10-25T17:20:00.181733+00:00, execution_date=20261025T172000, start_date=, end_date=20261025T172000
+[2026-10-25T19:20:00.232+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=branch map_index=-1
+[2026-10-25T19:20:00.235+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=count_silver map_index=-1
+[2026-10-25T19:20:00.235+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.count_silver manual__2026-10-25T17:20:00.181733+00:00 [scheduled]>
+[2026-10-25 19:20:00,241] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.241+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.241+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:00.241+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25T19:20:00.262+0200] {aurika_hw07.py:78} INFO - Inserted id=5, medal=Silver, count=14676; created_at uses UTC
+[2026-10-25 19:20:00,262] {python.py:240} INFO - Done. Returned value was: 5
+[2026-10-25T19:20:00.262+0200] {python.py:240} INFO - Done. Returned value was: 5
+[2026-10-25T19:20:00.264+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:00.264+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=count_silver, run_id=manual__2026-10-25T17:20:00.181733+00:00, execution_date=20261025T172000, start_date=, end_date=20261025T172000
+[2026-10-25T19:20:00.266+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=count_silver map_index=-1
+[2026-10-25T19:20:00.270+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=delay map_index=-1
+[2026-10-25T19:20:00.270+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.delay manual__2026-10-25T17:20:00.181733+00:00 [scheduled]>
+[2026-10-25 19:20:00,276] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.276+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:00.276+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:00.276+0200] {aurika_hw07.py:86} INFO - Sleeping for 5 seconds
+[2026-10-25 19:20:05,276] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:05.276+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:05.283+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:05.283+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=delay, run_id=manual__2026-10-25T17:20:00.181733+00:00, execution_date=20261025T172000, start_date=, end_date=20261025T172005
+[2026-10-25T19:20:05.286+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=delay map_index=-1
+[2026-10-25T19:20:05.290+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=check_freshness map_index=-1
+[2026-10-25T19:20:05.290+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.check_freshness manual__2026-10-25T17:20:00.181733+00:00 [scheduled]>
+[2026-10-25 19:20:05,299] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:05.299+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:00.181733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:00.181733+00:00'
+[2026-10-25T19:20:05.299+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:05.300+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:20:05,300] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['5', 'Silver'])
+[2026-10-25T19:20:05.300+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['5', 'Silver'])
+[2026-10-25T19:20:05.300+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:20:05,302] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['5', 'Silver']
+[2026-10-25T19:20:05.302+0200] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['5', 'Silver']
+[2026-10-25 19:20:05,303] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:20:05.303+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:20:05.303+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 5.041189 seconds; allowed: 0..30
+[2026-10-25 19:20:05,303] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:20:05.303+0200] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:20:05.304+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:05.304+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=check_freshness, run_id=manual__2026-10-25T17:20:00.181733+00:00, execution_date=20261025T172000, start_date=, end_date=20261025T172005
+[2026-10-25T19:20:05.307+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=check_freshness map_index=-1
+[2026-10-25T19:20:05.308+0200] {dagrun.py:854} INFO - Marking run <DagRun aurika_hw07_medals @ 2026-10-25 17:20:00.181733+00:00: manual__2026-10-25T17:20:00.181733+00:00, state:running, queued_at: None. externally triggered: False> successful
+[2026-10-25T19:20:05.308+0200] {dagrun.py:905} INFO - DagRun Finished: dag_id=aurika_hw07_medals, execution_date=2026-10-25 17:20:00.181733+00:00, run_id=manual__2026-10-25T17:20:00.181733+00:00, run_start_date=2026-10-25 17:20:00.181733+00:00, run_end_date=2026-10-25 17:20:05.308527+00:00, run_duration=5.126794, state=success, external_trigger=False, run_type=manual, data_interval_start=2026-10-25 17:20:00.181733+00:00, data_interval_end=2026-10-25 17:20:00.181733+00:00, dag_hash=None
+[2026-10-25T19:20:05.312+0200] {dag.py:4435} INFO - dagrun id: aurika_hw07_medals
+[2026-10-25T19:20:05.313+0200] {dag.py:4451} INFO - created dagrun <DagRun aurika_hw07_medals @ 2026-10-25 17:20:05.311138+00:00: manual__2026-10-25T17:20:05.311138+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-10-25T19:20:05.316+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=create_table map_index=-1
+[2026-10-25T19:20:05.317+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.create_table manual__2026-10-25T17:20:05.311138+00:00 [scheduled]>
+[2026-10-25 19:20:05,322] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.322+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.322+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:05.322+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:20:05,325] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25T19:20:05.325+0200] {sql.py:850} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS `aurika_hryhorova`.`aurika_hw07_medal_counts` (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            medal_type VARCHAR(6) NOT NULL,
+            `count` BIGINT UNSIGNED NOT NULL,
+            created_at DATETIME(6) NOT NULL
+        )
+    , parameters: None
+[2026-10-25 19:20:05,325] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:20:05.325+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25 19:20:05,325] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:05.325+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:05.326+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:05.326+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=create_table, run_id=manual__2026-10-25T17:20:05.311138+00:00, execution_date=20261025T172005, start_date=, end_date=20261025T172005
+[2026-10-25T19:20:05.329+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=create_table map_index=-1
+[2026-10-25T19:20:05.332+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=choose_medal map_index=-1
+[2026-10-25T19:20:05.332+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.choose_medal manual__2026-10-25T17:20:05.311138+00:00 [scheduled]>
+[2026-10-25 19:20:05,337] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.337+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='choose_medal' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.337+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:05.337+0200] {aurika_hw07.py:45} INFO - Selected medal: Bronze
+[2026-10-25 19:20:05,337] {python.py:240} INFO - Done. Returned value was: Bronze
+[2026-10-25T19:20:05.337+0200] {python.py:240} INFO - Done. Returned value was: Bronze
+[2026-10-25T19:20:05.339+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:05.339+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=choose_medal, run_id=manual__2026-10-25T17:20:05.311138+00:00, execution_date=20261025T172005, start_date=, end_date=20261025T172005
+[2026-10-25T19:20:05.341+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=choose_medal map_index=-1
+[2026-10-25T19:20:05.344+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=branch map_index=-1
+[2026-10-25T19:20:05.344+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.branch manual__2026-10-25T17:20:05.311138+00:00 [scheduled]>
+[2026-10-25 19:20:05,349] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.349+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='branch' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.349+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25 19:20:05,350] {python.py:240} INFO - Done. Returned value was: count_bronze
+[2026-10-25T19:20:05.350+0200] {python.py:240} INFO - Done. Returned value was: count_bronze
+[2026-10-25 19:20:05,350] {branch.py:38} INFO - Branch into count_bronze
+[2026-10-25T19:20:05.350+0200] {branch.py:38} INFO - Branch into count_bronze
+[2026-10-25T19:20:05.350+0200] {skipmixin.py:233} INFO - Following branch {'count_bronze'}
+[2026-10-25T19:20:05.351+0200] {skipmixin.py:281} INFO - Skipping tasks [('count_gold', -1), ('count_silver', -1)]
+[2026-10-25T19:20:05.354+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:05.354+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=branch, run_id=manual__2026-10-25T17:20:05.311138+00:00, execution_date=20261025T172005, start_date=, end_date=20261025T172005
+[2026-10-25T19:20:05.356+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=branch map_index=-1
+[2026-10-25T19:20:05.359+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=count_bronze map_index=-1
+[2026-10-25T19:20:05.359+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.count_bronze manual__2026-10-25T17:20:05.311138+00:00 [scheduled]>
+[2026-10-25 19:20:05,363] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.363+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='count_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.363+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:05.364+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25T19:20:05.385+0200] {aurika_hw07.py:78} INFO - Inserted id=6, medal=Bronze, count=14939; created_at uses UTC
+[2026-10-25 19:20:05,385] {python.py:240} INFO - Done. Returned value was: 6
+[2026-10-25T19:20:05.385+0200] {python.py:240} INFO - Done. Returned value was: 6
+[2026-10-25T19:20:05.387+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:05.387+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=count_bronze, run_id=manual__2026-10-25T17:20:05.311138+00:00, execution_date=20261025T172005, start_date=, end_date=20261025T172005
+[2026-10-25T19:20:05.389+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=count_bronze map_index=-1
+[2026-10-25T19:20:05.392+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=delay map_index=-1
+[2026-10-25T19:20:05.392+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.delay manual__2026-10-25T17:20:05.311138+00:00 [scheduled]>
+[2026-10-25 19:20:05,396] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.396+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='delay' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:05.396+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:05.396+0200] {aurika_hw07.py:86} INFO - Sleeping for 5 seconds
+[2026-10-25 19:20:10,407] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:10.407+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-25T19:20:10.410+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:10.411+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=delay, run_id=manual__2026-10-25T17:20:05.311138+00:00, execution_date=20261025T172005, start_date=, end_date=20261025T172010
+[2026-10-25T19:20:10.418+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=delay map_index=-1
+[2026-10-25T19:20:10.425+0200] {dag.py:4396} INFO - [DAG TEST] starting task_id=check_freshness map_index=-1
+[2026-10-25T19:20:10.425+0200] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: aurika_hw07_medals.check_freshness manual__2026-10-25T17:20:05.311138+00:00 [scheduled]>
+[2026-10-25 19:20:10,441] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:10.441+0200] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aurika' AIRFLOW_CTX_DAG_ID='aurika_hw07_medals' AIRFLOW_CTX_TASK_ID='check_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-25T17:20:05.311138+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-25T17:20:05.311138+00:00'
+[2026-10-25T19:20:10.441+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-10-25T19:20:10.442+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:20:10,442] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['6', 'Bronze'])
+[2026-10-25T19:20:10.442+0200] {sql.py:100} INFO - Poking: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+         (with parameters ['6', 'Bronze'])
+[2026-10-25T19:20:10.443+0200] {base.py:84} INFO - Retrieving connection 'hw07_mysql'
+[2026-10-25 19:20:10,446] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['6', 'Bronze']
+[2026-10-25T19:20:10.446+0200] {sql.py:850} INFO - Running statement: 
+            SELECT TIMESTAMPDIFF(MICROSECOND, created_at, UTC_TIMESTAMP(6))
+            FROM `aurika_hryhorova`.`aurika_hw07_medal_counts`
+            WHERE id = %s AND medal_type = %s
+            ORDER BY id DESC
+            LIMIT 1
+        , parameters: ['6', 'Bronze']
+[2026-10-25 19:20:10,447] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:20:10.447+0200] {sql.py:868} INFO - Rows affected: 0
+[2026-10-25T19:20:10.448+0200] {aurika_hw07.py:96} INFO - Age of this run's row: 5.062583 seconds; allowed: 0..30
+[2026-10-25 19:20:10,448] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:20:10.448+0200] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-25T19:20:10.449+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-25T19:20:10.449+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=aurika_hw07_medals, task_id=check_freshness, run_id=manual__2026-10-25T17:20:05.311138+00:00, execution_date=20261025T172005, start_date=, end_date=20261025T172010
+[2026-10-25T19:20:10.453+0200] {dag.py:4410} INFO - [DAG TEST] end task task_id=check_freshness map_index=-1
+[2026-10-25T19:20:10.454+0200] {dagrun.py:854} INFO - Marking run <DagRun aurika_hw07_medals @ 2026-10-25 17:20:05.311138+00:00: manual__2026-10-25T17:20:05.311138+00:00, state:running, queued_at: None. externally triggered: False> successful
+[2026-10-25T19:20:10.454+0200] {dagrun.py:905} INFO - DagRun Finished: dag_id=aurika_hw07_medals, execution_date=2026-10-25 17:20:05.311138+00:00, run_id=manual__2026-10-25T17:20:05.311138+00:00, run_start_date=2026-10-25 17:20:05.311138+00:00, run_end_date=2026-10-25 17:20:10.454671+00:00, run_duration=5.143533, state=success, external_trigger=False, run_type=manual, data_interval_start=2026-10-25 17:20:05.311138+00:00, data_interval_end=2026-10-25 17:20:05.311138+00:00, dag_hash=None
+Verified 6 real DAG runs: 35s failure and all three successful branches
