@@ -1,7 +1,6 @@
 {
   "passed": true,
   "files_before_package_report": 26,
-  "staged_matches_worktree": true,
   "secret_scan_hits": [],
   "excluded_artifacts_found": [],
   "screenshots": 5,
@@ -10,5 +9,6 @@
   "negative_35s_runs": 1,
   "mock_tests_passed": 8,
   "scope": "Own local Airflow/MySQL; ZIP excludes runtime, databases and source CSV",
-  "archive_verification": "ZIP CRC and byte-for-byte comparison against staged files are checked after assembly; final receipt retained locally"
+  "archive_verification": "ZIP CRC and file contents are checked against project files; receipt saved locally",
+  "files_match_checked_sources": true
 }

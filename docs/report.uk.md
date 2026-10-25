@@ -6,19 +6,19 @@
 
 DAG aurika_hw07_medals створює власну таблицю MySQL, випадково обирає Bronze, Silver або Gold, запускає лише відповідну гілку підрахунку, записує результат, виконує паузу й перевіряє вік цього запису стандартним SqlSensor.
 
-Підготовлено окреме локальне середовище: Python 3.12.4, Airflow 2.11.2, MySQL 8.4.11, MySQL provider 6.5.0, common-sql 1.32.0. Використано dag.test() зі справжніми SQL, XCom і time.sleep. Це реальні виконання tasks, окремо від 8 mock-тестів. Scheduler/executor та примусове застосування їхніх timeout цим способом не перевірялися. Попередження UI про scheduler очікуване.
+Підготовлено окреме локальне середовище: Python 3.12.4, Airflow 2.11.2, MySQL 8.4.11, MySQL provider 6.5.0, common-sql 1.32.0. Запуски виконано через dag.test(): завдання підключалися до MySQL, передавали значення через XCom і чекали через time.sleep. Окремо пройшли 8 mock-тестів із підставленими відповідями БД. Scheduler/executor та примусове застосування їхніх timeout цим способом не перевірялися. Попередження UI про scheduler очікуване.
 
 ## Дані й таблиця
 
-Джерело — публічний Olympic_Athlete_Event_Results.csv, commit 21b851f8fbe775332b1bc43b9dac213b4087e80b у sfc-gh-mconsoli/olympic_games_data_hub. У власну локальну olympic_dataset.athlete_event_results імпортовано проєкцію medal всіх 316834 рядків із номером вихідного рядка. Це не підтверджена копія remote GoIT dataset. SHA-256 CSV: 4a76c66fc6f69a2f69b4a953298d475fd61fb46a40ac5995ea738bc94695905b.
+Джерело — публічний Olympic_Athlete_Event_Results.csv, commit 21b851f8fbe775332b1bc43b9dac213b4087e80b у sfc-gh-mconsoli/olympic_games_data_hub. У власну локальну olympic_dataset.athlete_event_results імпортовано проєкцію medal всіх 316834 рядків із номером вихідного рядка. Тотожність цього CSV віддаленому набору даних GoIT не перевірялася. SHA-256 CSV: 4a76c66fc6f69a2f69b4a953298d475fd61fb46a40ac5995ea738bc94695905b.
 
-Контрольні counts: Bronze 14939, Silver 14676, Gold 15072. CSV Counter, MySQL GROUP BY і DAG дали однакові числа. Рахуються записи спортсменів, включно з учасниками команд.
+Контрольні кількості: Bronze 14939, Silver 14676, Gold 15072. CSV Counter, MySQL GROUP BY і DAG дали однакові числа. Рахуються записи спортсменів, включно з учасниками команд.
 
 Власна aurika_hryhorova.aurika_hw07_medal_counts має чотири поля: id AUTO_INCREMENT PRIMARY KEY, medal_type, count, created_at DATETIME(6). DAG не змінює source table.
 
 ![Таблиця результатів — live SELECT власного read-only переглядача MySQL](../evidence/screenshots/05-mysql-results.png)
 
-## Порядок tasks
+## Порядок завдань
 
 create_table, choose_medal, branch, одна з count_bronze/count_silver/count_gold, delay, check_freshness.
 
@@ -30,7 +30,7 @@ Sensor читає точний inserted id поточного run із XCom і �
 
 ## Реальні запуски
 
-Виконано 6 runs: п’ять success із паузою 5 секунд та один очікуваний failed із паузою 35 секунд. Випадковий вибір не підмінявся. Повторення потрібні для перевірки всіх трьох гілок.
+Виконано 6 запусків: п’ять success із паузою 5 секунд та один очікуваний failed із паузою 35 секунд. У кожному запуску медаль обирав random.choice. Запуски повторювалися до перевірки всіх трьох гілок.
 
 | Run ID (UTC) | Пауза, с | Медаль | id MySQL | Стан |
 |---|---:|---|---:|---|
@@ -41,11 +41,11 @@ Sensor читає точний inserted id поточного run із XCom і �
 | manual__2026-10-25T17:20:00.181733+00:00 | 5 | silver | 5 | success |
 | manual__2026-10-25T17:20:05.311138+00:00 | 5 | bronze | 6 | success |
 
-![Справжній Airflow UI — історія запусків](../evidence/screenshots/01-airflow-runs.jpg)
+![Airflow UI — історія запусків](../evidence/screenshots/01-airflow-runs.jpg)
 
 ## Успішний приклад
 
-Run manual__2026-10-25T17:20:05.311138+00:00 обрав Bronze. Count дорівнює 14939, вставлений id=6. Після справжньої паузи 5 секунд sensor прочитав 5.062583 секунди й завершився success. Невибрані Silver і Gold мають skipped.
+Run manual__2026-10-25T17:20:05.311138+00:00 обрав Bronze. Count дорівнює 14939, вставлений id=6. Після паузи 5 секунд sensor прочитав 5.062583 секунди й завершився success. Невибрані Silver і Gold мають skipped.
 
 ![Airflow Graph — success із Bronze](../evidence/screenshots/04-airflow-success-5s.png)
 
@@ -53,7 +53,7 @@ Run manual__2026-10-25T17:20:05.311138+00:00 обрав Bronze. Count дорів
 
 Run manual__2026-10-25T17:19:09.448059+00:00 обрав Gold. Count 15072 записано під id=1. Count і delay успішні, дві інші гілки skipped. Після паузи 35 секунд sensor прочитав 35.063458 секунди й завершився failed одразу за failure-предикатом. Run завершився приблизно за 35 секунд; стан вручну не змінювався.
 
-У справжньому логу:
+Фрагмент журналу Airflow:
 
 ```text
 Age of this run's row: 35.063458 seconds; allowed: 0..30
@@ -67,9 +67,9 @@ Marking task as FAILED. dag_id=aurika_hw07_medals, task_id=check_freshness
 
 ## Перевірки й виправлення
 
-DagBag завантажив 8 tasks без import errors; pip check не знайшов несумісних залежностей. Пройдено 8 mock-тестів, включно з rollback, join, XCom scope, missing/NULL/future/old row та межами віку. SQL-ділення замінено на цілі мікросекунди після review: 30.000001 секунди вже відхиляється. Це додатково перевірено справжньою MySQL.
+DagBag завантажив 8 tasks без import errors; pip check не знайшов несумісних залежностей. Пройдено 8 mock-тестів, включно з rollback, join, XCom scope, missing/NULL/future/old row та межами віку. Після перевірки SQL-ділення замінено на цілі мікросекунди: 30.000001 секунди вже відхиляється. Цю межу додатково перевірено в MySQL.
 
-Незалежне read-only review звірило CSV hash і кількості, усі 6 рядків MySQL, структуру чотирьох колонок, metadata states, XCom ids і реальні логи. Підтверджених дефектів DAG після виправлення не знайдено. Деталі та межі перевірки — evidence/review.uk.md.
+Додатково звірено контрольну суму CSV, усі 6 рядків результатів MySQL, структуру таблиці, стани завдань, XCom id та журнал запусків. Після виправлення помилки округлення розбіжностей не знайдено. Деталі та межі перевірки — evidence/review.uk.md.
 
 Повний журнал запусків — evidence/airflow-runs.log; у ньому лише абсолютний персональний шлях замінено на `<workspace>`. Машиночитні докази — runs.json, source.json, real-verification.json. Детальні команди підготовки, повторення й зупинки — guide.uk.md. Наявні результати не потрібно очищати для повторення: використовується окрема нова копія середовища.
 
@@ -79,4 +79,4 @@ DagBag завантажив 8 tasks без import errors; pip check не зна�
 
 Українська документація: https://app.notion.com/p/401a96dc80e58106af14c76711d45928?pvs=204
 
-Архів ДЗ7_Григорова_Ауріка_Вадимівна.zip містить код, цей документ зі скриншотами та докази. Venv, MySQL binaries/data, CSV, metadata DB, credentials і тимчасові файли не додаються. У LMS робота автоматично не відправляється; завантаження й політику оцінювання обирає користувачка.
+Архів ДЗ7_Григорова_Ауріка_Вадимівна.zip містить код, цей документ зі скриншотами та докази. Venv, MySQL binaries/data, CSV, metadata DB, credentials і тимчасові файли не додаються. Для здачі потрібно завантажити архів і посилання на репозиторій у LMS.

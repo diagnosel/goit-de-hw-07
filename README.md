@@ -4,9 +4,9 @@
 
 ## Результат
 
-25 жовтня 2026 року виконано **6 справжніх локальних запусків Airflow**: 5 success з паузою 5 секунд і 1 очікуваний failed з паузою 35 секунд. Успішно перевірено всі три гілки. У негативному запуску sensor прочитав вік **35.063458 секунди** й завершився failed. Дві невибрані гілки в кожному run мають skipped.
+25 жовтня 2026 року виконано **6 локальних запусків Airflow**: 5 success з паузою 5 секунд і 1 очікуваний failed з паузою 35 секунд. Успішно перевірено всі три гілки. У негативному запуску sensor прочитав вік **35.063458 секунди** й завершився failed. Дві невибрані гілки в кожному run мають skipped.
 
-Використано `dag.test()` із реальною MySQL, SQL-запитами та `time.sleep`. Це не mock-тести. Scheduler для такого способу виконання не потрібен. Робота scheduler/executor, паралельність і примусове застосування timeout цими runs не перевірялися. Історія збережена в metadata DB та показана у справжньому локальному Airflow UI. Попередження UI про зупинений scheduler очікуване для цього способу перевірки.
+Використано `dag.test()` із реальною MySQL, SQL-запитами та `time.sleep`. Окремо виконано 8 mock-тестів із підставленими відповідями БД. Scheduler для такого способу виконання не потрібен. Робота scheduler/executor, паралельність і примусове застосування timeout цими runs не перевірялися. Історія збережена в metadata DB та доступна у локальному Airflow UI. Попередження UI про зупинений scheduler очікуване для цього способу перевірки.
 
 Середовище: macOS на Apple Silicon, Python 3.12.4, Airflow 2.11.2, MySQL Community 8.4.11, MySQL provider 6.5.0, common-sql 1.32.0, mysql-connector-python 9.6.0. Docker і сервери GoIT не використовувалися.
 
@@ -77,7 +77,7 @@ python scripts/run_checks.py
 python scripts/verify_results.py
 ```
 
-Runner не запускається на віддаленому host і не перезаписує наявний `evidence/runs.json`. Для нового набору перевірок використовуйте окрему копію робочих файлів без попереднього `runs.json`, нову metadata DB й новий ізольований MySQL. Випадковий вибір не підміняється: runner повторює 5-секундні запуски до появи всіх трьох успішних гілок, максимум 20 runs.
+Runner не запускається на віддаленому host і не перезаписує наявний `evidence/runs.json`. Для нового набору перевірок використовуйте окрему копію робочих файлів без попереднього `runs.json`, нову metadata DB й новий ізольований MySQL. Скрипт використовує `random.choice` і повторює 5-секундні запуски до появи всіх трьох успішних гілок, максимум 20 runs.
 
 Для перегляду історії у UI:
 
@@ -86,18 +86,18 @@ airflow dags reserialize
 airflow webserver --hostname 127.0.0.1 --port 18087
 ```
 
-Потрібна локальна конфігурація доступу до UI. Для скриншотів цієї перевірки новий UI мав read-only роль Viewer без облікового запису й слухав лише loopback. Паролі для постійного доступу не створювалися. Для live SELECT таблиці: `python scripts/view_mysql.py`, далі `http://127.0.0.1:18088/`. Це власний read-only переглядач даних, не імітація Airflow UI.
+Потрібна локальна конфігурація доступу до UI. Для скриншотів цієї перевірки новий UI мав read-only роль Viewer без облікового запису й слухав лише loopback. Паролі для постійного доступу не створювалися. Для live SELECT таблиці: `python scripts/view_mysql.py`, далі `http://127.0.0.1:18088/`. Це окрема сторінка для перегляду даних MySQL; вона виконує SELECT при відкритті.
 
 ## Докази й документ
 
 - `evidence/runs.json` — фактичні run ids, параметри й task states.
 - `evidence/real-verification.json` — незалежна звірка MySQL, XCom id, CSV totals і межі 30 секунд.
 - `evidence/source.json` — URL, SHA-256 та контрольні кількості CSV.
-- `evidence/screenshots/` — справжній Airflow UI та live SELECT таблиці.
+- `evidence/screenshots/` — Airflow UI та результати SELECT таблиці.
 - `docs/report.pdf` — текстовий документ зі скриншотами для здачі.
 - `docs/report.html` — той самий документ для відкриття у браузері; зображення вбудовані.
 - `evidence/unit-tests.log` — окремі 8 mock-тестів коду, які не замінюють реальні runs.
 
-Пояснення українською та журнал кроків: [Notion](https://app.notion.com/p/401a96dc80e58106af14c76711d45928?pvs=204). У LMS робота автоматично не надсилається; політику оцінювання обирає користувачка.
+Пояснення українською та журнал кроків: [Notion](https://app.notion.com/p/401a96dc80e58106af14c76711d45928?pvs=204). Для здачі потрібно завантажити ZIP і посилання на репозиторій у LMS.
 
-Джерела: [Airflow 2.11.2](https://airflow.apache.org/docs/apache-airflow/2.11.2/core-concepts/dags.html), [SqlSensor 1.32.0](https://airflow.apache.org/docs/apache-airflow-providers-common-sql/1.32.0/_api/airflow/providers/common/sql/sensors/sql/index.html). Локальний спосіб перевірки розглянуто після наданого прикладу [slipkoliudmyla/goit-de-hw-07](https://github.com/slipkoliudmyla/goit-de-hw-07); DAG і докази цієї роботи виконані окремо.
+Джерела: [Airflow 2.11.2](https://airflow.apache.org/docs/apache-airflow/2.11.2/core-concepts/dags.html), [SqlSensor 1.32.0](https://airflow.apache.org/docs/apache-airflow-providers-common-sql/1.32.0/_api/airflow/providers/common/sql/sensors/sql/index.html). Приклад локального способу перевірки: [slipkoliudmyla/goit-de-hw-07](https://github.com/slipkoliudmyla/goit-de-hw-07). Код і результати цієї роботи збережено в цьому репозиторії.
